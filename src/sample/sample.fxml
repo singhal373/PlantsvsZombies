@@ -1,70 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Scene?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<Scene xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sampleController" height="1920" width="1080">
-    <AnchorPane prefHeight="1920" prefWidth="1080">
+<Scene height="1920" width="1080" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sampleController">
+    <AnchorPane fx:id="anchor" prefHeight="1920" prefWidth="1080">
       <children>
          <ImageView pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@pics/Background1.jpg" />
             </image>
          </ImageView>
-         <ImageView fitHeight="83.0" fitWidth="91.0" layoutX="200.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@pics/flow4.png" />
-            </image>
-         </ImageView>
-          <ImageView fitHeight="84.0" fitWidth="83.0" layoutX="139.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                  <Image url="@pics/flow1.png" />
-              </image>
-          </ImageView>
-         <HBox layoutX="206.0" layoutY="35.0" spacing="30.0" style="-fx-background-image: url=@pics/seedslot.png;" styleClass="hbox" stylesheets="@stylesheet.css">
+          <HBox translateX="900.0">
+              <children>
+                  <ImageView>
+                      <image>
+                          <Image url="@pics/menu.png" />
+                      </image>
+                  </ImageView>
+              </children>
+          </HBox>
+        <HBox alignment="CENTER_RIGHT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="43.0" prefWidth="296.0" translateX="800.0">
+            <children>
+
+                <ImageView scaleX="2.0" scaleY="2.0" scaleZ="2.0" translateX="400.0">
+                    <image>
+                        <Image url="@pics/bar.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="zombie_head" fitHeight="60.0" fitWidth="60.0" onMousePressed="#Zombie_head_timer" scaleX="1.0" scaleY="1.0" scaleZ="1.0" translateX="150.0">
+                    <image>
+                        <Image url="@pics/zom.png" />
+                    </image>
+                </ImageView>
+
+            </children>
+        </HBox>
+
+         <HBox layoutX="12.0" layoutY="7.0" prefHeight="65.0" prefWidth="176.0" spacing="5.0" style="-fx-background-image: url=@pics/seedslot.png;" styleClass="hbox" stylesheets="@stylesheet.css">
             <padding>
                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-            </padding></HBox>
-         <GridPane gridLinesVisible="true" layoutX="260.0" layoutY="98.0" prefHeight="472.0" prefWidth="879.0">
+            </padding>
+         <children>
+             <VBox spacing="0"><children>
+             <ImageView fx:id="sun_icon" fitHeight="67.0" fitWidth="72.0" onMousePressed="#Sun_move" pickOnBounds="true" preserveRatio="true" x="100.0">
+                 <image>
+                     <Image url="@pics/Sun.png" />
+                 </image>
+                  <effect>
+                     <Glow />
+                  </effect>
+             </ImageView>
+             <Label fx:id="sun_counter" prefWidth="77.0" text="0" textAlignment="CENTER" translateX="20.0" translateY="-20.0">
+                        <font>
+                           <Font name="System Bold Italic" size="36.0" />
+                        </font>
+                        <effect>
+                           <Glow level="1.0" />
+                        </effect>
+                 
+                        <textFill>
+                           <LinearGradient endX="1.0" endY="1.0">
+                              <stops>
+                                 <Stop>
+                                    <color>
+                                       <Color red="0.5131579041481018" green="0.4949835538864136" blue="0.1496710479259491" />
+                                    </color>
+                                 </Stop>
+                                 <Stop offset="1.0">
+                                    <color>
+                                       <Color red="1.0" green="0.9852623343467712" blue="0.11574073880910873" />
+                                    </color>
+                                 </Stop>
+                              </stops>
+                           </LinearGradient>
+                        </textFill></Label>
+             </children></VBox>
+         <VBox spacing="5"><children>
+             <ImageView fitHeight="78.0" fitWidth="61.0" layoutX="200.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+             <image>
+                 <Image url="@pics/flow5.png" />
+             </image>
+         </ImageView>
+             <ImageView fitHeight="104.0" fitWidth="59.0" layoutX="139.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                     <Image url="@pics/flow1.png" />
+                 </image>
+             </ImageView>
+             <ImageView fitHeight="104.0" fitWidth="59.0" layoutX="139.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                     <Image url="@pics/flow4.png" />
+                 </image>
+             </ImageView>
+             <ImageView fitHeight="104.0" fitWidth="59.0" layoutX="139.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                     <Image url="@pics/flow6.jpg" />
+                 </image>
+             </ImageView>
+         </children></VBox>
+         </children>
+         </HBox>
+         <GridPane fx:id="grid" layoutX="260.0" layoutY="98.0" prefHeight="472.0" prefWidth="879.0">
            <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="106.0" minWidth="10.0" prefWidth="77.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="68.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="88.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="101.0" minWidth="10.0" prefWidth="76.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="84.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="2.0" prefWidth="76.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="0.0" prefWidth="81.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="106.0" minWidth="10.0" prefWidth="14.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="70.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="71.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="84.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="84.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="85.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="2.0" prefWidth="75.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="0.0" prefWidth="87.0" />
              <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="78.0" />
              <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="95.0" />
                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
            </columnConstraints>
            <rowConstraints>
              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+             <RowConstraints maxHeight="87.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="103.0" minHeight="10.0" prefHeight="103.0" vgrow="SOMETIMES" />
                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
            </rowConstraints>
             <children>
-                <ImageView fx:id="zombie_gif" fitHeight="233.0" fitWidth="169.0" onMousePressed="#Zombie_move" pickOnBounds="true" preserveRatio="true" translateX="-30.0" GridPane.columnIndex="9" GridPane.columnSpan="2147483647">
+                <ImageView fx:id="zombie_gif" fitHeight="233.0" fitWidth="169.0" onMousePressed="#Zombie_move" pickOnBounds="true" preserveRatio="true" translateX="-30.0" translateY="40.0" GridPane.columnIndex="10" GridPane.columnSpan="2147483647">
                     <image>
                         <Image url="@pics/Conehead_Zombie.gif" />
                     </image>
                 </ImageView>
-               <ImageView fx:id="shooter_gif" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@pics/Peashooter_transparent_gif.gif" />
-                  </image>
+                <ImageView fx:id="shooter_gif" fitHeight="100.0" fitWidth="100.0" onMousePressed="#Projectile_move" pickOnBounds="true" preserveRatio="true" translateX="-15.0" translateY="-15.0" GridPane.columnIndex="1">
+                <image>
+                    <Image url="@pics/Peashooter_transparent_gif.gif" />
+                </image>
+            </ImageView>
+                <ImageView fx:id="lawnmower1" onMousePressed="#Lawnmower_move" pickOnBounds="true" preserveRatio="true" translateX="-70.0" translateY="-10.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+                    <image>
+                        <Image url="@pics/lawn_mower.gif" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="lawnmower2" onMousePressed="#Lawnmower_move" pickOnBounds="true" preserveRatio="true" translateX="-70.0" translateY="-10.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+                    <image>
+                        <Image url="@pics/lawn_mower.gif" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="lawnmower3" onMousePressed="#Lawnmower_move" pickOnBounds="true" preserveRatio="true" translateX="-70.0" translateY="-10.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
+                    <image>
+                        <Image url="@pics/lawn_mower.gif" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="lawnmower4" onMousePressed="#Lawnmower_move" pickOnBounds="true" preserveRatio="true" translateX="-70.0" translateY="-10.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
+                    <image>
+                        <Image url="@pics/lawn_mower.gif" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="lawnmower0" onMousePressed="#Lawnmower_move" pickOnBounds="true" preserveRatio="true" translateX="-70.0" translateY="-10.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.rowIndex="0">
+                    <image>
+                        <Image url="@pics/lawn_mower.gif" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="sunflower_gif" fitHeight="77.0" fitWidth="75.0" onMousePressed="#sun_produced" pickOnBounds="true" preserveRatio="true" translateX="-5.0" translateY="-10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <image>
+                        <Image url="@pics/sunflower.gif" />
+                    </image>
+                </ImageView>
 
-               </ImageView>
-            </children>
+             </children>
          </GridPane>
 
       </children></AnchorPane>
